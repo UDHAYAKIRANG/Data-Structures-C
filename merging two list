@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 struct node{
     int data;
     struct node* next;
 };
-
 void insertEnd(struct node** head, int new_data){
     struct node* new_node = malloc(sizeof(struct node));
     new_node->data = new_data;
@@ -20,7 +18,6 @@ void insertEnd(struct node** head, int new_data){
     }
     temp->next = new_node;
 }
-
 void insertEndBig(struct node** head, int new_data){
     struct node* new_node = malloc(sizeof(struct node));
     new_node->data = new_data;
@@ -36,14 +33,12 @@ void insertEndBig(struct node** head, int new_data){
     temp->next = new_node;
     
 }
-
 void display(struct node* head){
     while(head!=NULL){
         printf("%d ",head->data);
         head = head->next;
     }
 }
-
 int main(){
     struct node* head = NULL;
     insertEnd(&head,10);
@@ -51,34 +46,16 @@ int main(){
     insertEnd(&head,30);
     insertEnd(&head,40);
     insertEnd(&head,50);
-    
-    // display(head);
-    
     struct node* element = NULL;
     insertEnd(&element,60);
     insertEnd(&element,70);
     insertEnd(&element,80);
     insertEnd(&element,90);
     insertEnd(&element,100);
-    
-    // display(element);
-    
     while(element!=NULL){
         insertEnd(&head,element->data);
         element = element->next;
     }
     display(head);
-    
-    // struct node* big = NULL;
-    // while(head!=NULL){
-    //     insertEndBig(&big,head->data);
-    //     head = head->next;
-    // }
-    // while(element!=NULL){
-    //     insertEnd(&big,element->data);
-    //     element = element->next;
-    // }
-    // display(big);
-    
-    
+}   
 }
